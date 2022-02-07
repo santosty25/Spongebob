@@ -1,4 +1,4 @@
-package edu.up.cs301customcoloring_minecraft;
+package edu.up.cs301customcoloring_spongebob;
 
 import androidx.appcompat.app.AppCompatActivity;
 
