@@ -3,8 +3,9 @@ package edu.up.cs301customcoloring_spongebob;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.util.Log;
 
-public class Spongebob {
+public class Spongebob extends DrawCanvas{
     private float x;
     private float y;
     private Paint sponge = new Paint();
@@ -24,7 +25,11 @@ public class Spongebob {
         this.sponge.setStyle(Paint.Style.FILL);
     }
 
-    public void drawSpongebob(Canvas canvas) {
+    @Override
+    public void draw(Canvas canvas) {
+
+        updateColor(this.red, this.green, this.blue);
+        Log.d("draw", "draw: done ");
         Paint spot = new Paint();
         int spongeSpot = Color.rgb(187,179,34);
         spot.setColor(spongeSpot);
@@ -81,4 +86,55 @@ public class Spongebob {
         //draw mouth
         canvas.drawArc(this.x + 30.0f, this.y + 80.0f, this.x + 120.0f, this.y + 100.0f, 0, 180, true, shoes);
     }
+
+    @Override
+    public int getRed() {
+        return this.red;
+    }
+
+    @Override
+    public int getGreen() {
+        return this.green;
+    }
+
+    @Override
+    public int getBlue() {
+        return this.blue;
+    }
+
+    @Override
+    public void setRed(int initRed) {
+        this.red = initRed;
+    }
+
+    @Override
+    public void setGreen(int initGreen) {
+        this.green = initGreen;
+    }
+
+    @Override
+    public void setBlue(int initBlue) {
+        this.blue = initBlue;
+    }
+
+    @Override
+    public void updateColor(int upRed, int upGreen, int upBlue) {
+        int newSpongeCol = Color.rgb(upRed, upGreen, upBlue);
+        this.sponge.setColor(newSpongeCol);
+        this.sponge.setStyle(Paint.Style.FILL);
+    }
+
+    @Override
+    public boolean containsPoint(float xcoord, float ycoord) {
+        if(xcoord >= this.x - 20.0f && xcoord <= this.x + 170.0f ) {
+            if(ycoord >= this.y && ycoord <= this.y + 270.0f) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
+
 }

@@ -51,12 +51,40 @@ public class Drawing extends SurfaceView {
         super.onDraw(canvas);
         canvas.drawRect(0.0f, 0.0f, 2000.0f, 900.0f, ocean);
         canvas.drawRect(0.0f, 600.0f, 2000.0f, 900.0f, sand);
-        rock.drawPatHouse(canvas);
-        spongeBob.drawSpongebob(canvas);
-        pineapple.drawSpongeHouse(canvas);
-        squid.drawSquidHouse(canvas);
-        sun.drawSun(canvas);
-        patrick.drawPatrick(canvas);
+        rock.draw(canvas);
+        spongeBob.draw(canvas);
+        pineapple.draw(canvas);
+        squid.draw(canvas);
+        sun.draw(canvas);
+        patrick.draw(canvas);
 
+    }
+
+    public Drawing getDrawing() {
+        return this;
+    }
+
+    public PatrickHouse getPatHouse() {
+        return this.rock;
+    }
+
+    public Spongebob getSponge() {
+        return this.spongeBob;
+    }
+
+    public SpongeHouse getSpongeHouse() {
+        return this.pineapple;
+    }
+
+    public SquidHouse getSquidHouse() {
+        return this.squid;
+    }
+
+    public Sun getSun() {
+        return this.sun;
+    }
+
+    public Patrick getPatrick() {
+        return this.patrick;
     }
 }

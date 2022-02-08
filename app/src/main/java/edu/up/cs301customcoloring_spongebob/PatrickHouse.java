@@ -4,7 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
-public class PatrickHouse {
+public class PatrickHouse extends DrawCanvas {
 
     private float x;
     private float y;
@@ -25,8 +25,58 @@ public class PatrickHouse {
         this.patHouse.setStyle(Paint.Style.FILL);
     }
 
-    public void drawPatHouse(Canvas canvas) {
+    public void draw(Canvas canvas) {
+        this.updateColor(this.red, this.green, this.blue);
         canvas.drawArc(this.x, this.y, this.x + 300.0f, this.y + 300.0f, 180, 180, true, patHouse);
     }
+
+    @Override
+    public int getRed() {
+        return this.red;
+    }
+
+    @Override
+    public int getGreen() {
+        return this.green;
+    }
+
+    @Override
+    public int getBlue() {
+        return this.blue;
+    }
+
+    @Override
+    public void setRed(int initRed) {
+        this.red = initRed;
+    }
+
+    @Override
+    public void setGreen(int initGreen) {
+        this.green = initGreen;
+    }
+
+    @Override
+    public void setBlue(int initBlue) {
+        this.blue = initBlue;
+    }
+
+    @Override
+    public void updateColor(int upRed, int upGreen, int upBlue) {
+        int newPatHouseCol = Color.rgb(upRed, upGreen, upBlue);
+        this.patHouse.setColor(newPatHouseCol);
+        this.patHouse.setStyle(Paint.Style.FILL);
+    }
+
+    @Override
+    public boolean containsPoint(float xcoord, float ycoord) {
+        if(xcoord >= this.x && xcoord <= this.x + 300.0f ) {
+            if(ycoord >= this.y && ycoord <= this.y + 300.0f) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 
 }

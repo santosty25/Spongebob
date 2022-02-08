@@ -4,7 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
-public class SquidHouse {
+public class SquidHouse extends DrawCanvas{
     private float x;
     private float y;
     private Paint squidHouse = new Paint();
@@ -24,7 +24,10 @@ public class SquidHouse {
         this.squidHouse.setStyle(Paint.Style.FILL);
     }
 
-    public void drawSquidHouse(Canvas canvas) {
+    public void draw(Canvas canvas) {
+
+        this.updateColor(this.red, this.green, this.blue);
+
         Paint squidFrame = new Paint();
         int frame = Color.rgb(173,216,230);
         squidFrame.setColor(frame);
@@ -51,4 +54,53 @@ public class SquidHouse {
         canvas.drawOval(this.x + 200.0f, this.y + 125.0f, this. x + 260.0f, this.y + 175.0f, window);
 
     }
+
+    @Override
+    public int getRed() {
+        return this.red;
+    }
+
+    @Override
+    public int getGreen() {
+        return this.green;
+    }
+
+    @Override
+    public int getBlue() {
+        return this.blue;
+    }
+
+    @Override
+    public void setRed(int initRed) {
+        this.red = initRed;
+    }
+
+    @Override
+    public void setGreen(int initGreen) {
+        this.green = initGreen;
+    }
+
+    @Override
+    public void setBlue(int initBlue) {
+        this.blue = initBlue;
+    }
+
+    @Override
+    public void updateColor(int upRed, int upGreen, int upBlue) {
+        int newSquidCol = Color.rgb(upRed, upGreen, upBlue);
+        this.squidHouse.setColor(newSquidCol);
+        this.squidHouse.setStyle(Paint.Style.FILL);
+    }
+
+    @Override
+    public boolean containsPoint(float xcoord, float ycoord) {
+        if(xcoord >= this.x && xcoord <= this.x + 300.0f ) {
+            if(ycoord >= this.y && ycoord <= this.y + 450.0f) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 }

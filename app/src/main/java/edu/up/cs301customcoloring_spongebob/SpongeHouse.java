@@ -5,7 +5,7 @@ import android.graphics.Paint;
 import android.graphics.Canvas;
 
 
-public class SpongeHouse {
+public class SpongeHouse extends DrawCanvas{
 
         private float x;
         private float y;
@@ -26,7 +26,10 @@ public class SpongeHouse {
             this.spongeHouse.setStyle(Paint.Style.FILL);
         }
 
-        public void drawSpongeHouse(Canvas canvas) {
+        @Override
+        public void draw(Canvas canvas) {
+
+            this.updateColor(this.red, this.green, this.blue);
 
             Paint pineappleFrame = new Paint();
             int frame = Color.rgb(173,216,230);
@@ -54,4 +57,53 @@ public class SpongeHouse {
             canvas.drawOval(this.x + 60.0f, this.y + 80.0f, this.x + 140.0f, this. y + 160.0f, pineappleFrame);
             canvas.drawOval(this.x + 80.0f, this.y + 100.0f, this.x + 120.0f, this.y + 140.0f, window);
         }
+
+    @Override
+    public int getRed() {
+        return this.red;
+    }
+
+    @Override
+    public int getGreen() {
+        return this.green;
+    }
+
+    @Override
+    public int getBlue() {
+        return this.blue;
+    }
+
+    @Override
+    public void setRed(int initRed) {
+        this.red = initRed;
+    }
+
+    @Override
+    public void setGreen(int initGreen) {
+        this.green = initGreen;
+    }
+
+    @Override
+    public void setBlue(int initBlue) {
+        this.blue = initBlue;
+    }
+
+    @Override
+    public void updateColor(int upRed, int upGreen, int upBlue) {
+        int newSpongeHouseCol = Color.rgb(upRed, upGreen, upBlue);
+        this.spongeHouse.setColor(newSpongeHouseCol);
+        this.spongeHouse.setStyle(Paint.Style.FILL);
+    }
+
+    @Override
+    public boolean containsPoint(float xcoord, float ycoord) {
+        if(xcoord >= this.x && xcoord <= this.x + 300.0f ) {
+            if(ycoord >= this.y - 100.0f && ycoord <= this.y + 450.0f) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 }
