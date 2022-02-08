@@ -46,6 +46,7 @@ public class SpongeController implements SeekBar.OnSeekBarChangeListener, View.O
         int blue = this.element.getBlue();
 
         if(seekBar.getId() == (R.id.redSB)) {
+            seekBar.setProgress(progress);
             seekBar.setProgress(red);
         }
         else if(seekBar.getId() == (R.id.greenSB)) {
