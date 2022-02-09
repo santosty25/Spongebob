@@ -5,14 +5,26 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.Log;
 
+/**
+ * Spongebob - This class represents a drawing of Spongebob.
+ *
+ * @author Tyler Santos
+ * @version Spring 2022
+ */
 public class Spongebob extends DrawCanvas{
-    private float x;
-    private float y;
-    private Paint sponge = new Paint();
-    private int red;
-    private int blue;
-    private int green;
+    private float x; //x value
+    private float y; //y value
+    private Paint sponge = new Paint(); //color of Spongebob
+    private int red; //red value
+    private int blue; //blue value
+    private int green; //green value
 
+    /**
+     * Spongebob- Constructor that initializes all instance variables
+     * and sets the color of Spongebob.
+     * @param initX
+     * @param initY
+     */
     public Spongebob(float initX, float initY) {
         this.x = initX;
         this.y = initY;
@@ -25,29 +37,39 @@ public class Spongebob extends DrawCanvas{
         this.sponge.setStyle(Paint.Style.FILL);
     }
 
+    /**
+     * draw - Method that draws Spongebob.
+     *
+     * @param canvas
+     */
     @Override
     public void draw(Canvas canvas) {
-
+        //update color everytime Spongebob is drawn
         updateColor(this.red, this.green, this.blue);
-        Log.d("draw", "draw: done ");
+
+        //color for Spongebob's spots
         Paint spot = new Paint();
         int spongeSpot = Color.rgb(187,179,34);
         spot.setColor(spongeSpot);
         spot.setStyle(Paint.Style.FILL);
 
+        //color for Spongebob's shirt
         Paint shirt = new Paint();
         shirt.setColor(Color.WHITE);
         shirt.setStyle(Paint.Style.FILL);
 
+        //color for Spongebob's pants
         Paint pants = new Paint();
         int spongePants  = Color.rgb(139,69,19);
         pants.setColor(spongePants);
         pants.setStyle(Paint.Style.FILL);
 
+        //color for Spongebob's shoes
         Paint shoes = new Paint();
         shoes.setColor(Color.BLACK);
         shoes.setStyle(Paint.Style.FILL);
 
+        //color for Spongebob's tie
         Paint tie = new Paint();
         tie.setColor(Color.RED);
         tie.setStyle(Paint.Style.FILL);
@@ -87,36 +109,73 @@ public class Spongebob extends DrawCanvas{
         canvas.drawArc(this.x + 30.0f, this.y + 80.0f, this.x + 120.0f, this.y + 100.0f, 0, 180, true, shoes);
     }
 
+    /**
+     * getRed - Gets the red value in this class.
+     *
+     * @return this.red
+     */
     @Override
     public int getRed() {
         return this.red;
     }
 
+    /**
+     * getGreen - Gets the green value in this class.
+     *
+     * @return this.green
+     */
     @Override
     public int getGreen() {
         return this.green;
     }
 
+    /**
+     * getBlue - Gets the blue value in this class.
+     *
+     * @return this.blue
+     */
     @Override
     public int getBlue() {
         return this.blue;
     }
 
+    /**
+     * setRed - Sets the red value to a given argument.
+     *
+     * @param initRed
+     */
     @Override
     public void setRed(int initRed) {
         this.red = initRed;
     }
 
+    /**
+     * setGreen - Sets the green value to a given argument.
+     *
+     * @param initGreen
+     */
     @Override
     public void setGreen(int initGreen) {
         this.green = initGreen;
     }
 
+    /**
+     * setBlue - Sets the blue value to a given argument.
+     *
+     * @param initBlue
+     */
     @Override
     public void setBlue(int initBlue) {
         this.blue = initBlue;
     }
 
+    /**
+     * updateColor - Updates the sponge Paint to new rgb values.
+     *
+     * @param upRed
+     * @param upGreen
+     * @param upBlue
+     */
     @Override
     public void updateColor(int upRed, int upGreen, int upBlue) {
         int newSpongeCol = Color.rgb(upRed, upGreen, upBlue);
@@ -124,6 +183,14 @@ public class Spongebob extends DrawCanvas{
         this.sponge.setStyle(Paint.Style.FILL);
     }
 
+    /**
+     * containsPoint - Checks if a given point contains a
+     * Spongebob object.
+     *
+     * @param xcoord
+     * @param ycoord
+     * @return true/false
+     */
     @Override
     public boolean containsPoint(float xcoord, float ycoord) {
         if(xcoord >= this.x - 20.0f && xcoord <= this.x + 170.0f ) {
