@@ -16,9 +16,9 @@ import android.widget.TextView;
  */
 public class MainActivity extends AppCompatActivity {
 
-    private SeekBar redSB;
-    private SeekBar greenSB;
-    private SeekBar blueSB;
+    private SeekBar redSB; //red seekbar
+    private SeekBar greenSB; //green seekbar
+    private SeekBar blueSB; //blue seekbar
 
     /**
      * onCreate - Creates an activity.

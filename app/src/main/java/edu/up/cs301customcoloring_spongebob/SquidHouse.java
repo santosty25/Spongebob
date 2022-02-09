@@ -45,6 +45,7 @@ public class SquidHouse extends DrawCanvas{
      */
     public void draw(Canvas canvas) {
 
+        //update the color of Squidward's house
         this.updateColor(this.red, this.green, this.blue);
 
         //color of window frames

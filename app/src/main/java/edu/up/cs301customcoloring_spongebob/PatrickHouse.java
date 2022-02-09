@@ -46,6 +46,7 @@ public class PatrickHouse extends DrawCanvas {
      */
     @Override
     public void draw(Canvas canvas) {
+        //update the color of Patrick's house.
         this.updateColor(this.red, this.green, this.blue);
         canvas.drawArc(this.x, this.y, this.x + 300.0f, this.y + 300.0f, 180, 180, true, patHouse);
     }
@@ -112,6 +113,7 @@ public class PatrickHouse extends DrawCanvas {
 
     /**
      * updateColor - Updates the rgb color values to a given argument.
+     *
      * @param upRed
      * @param upGreen
      * @param upBlue
@@ -128,6 +130,7 @@ public class PatrickHouse extends DrawCanvas {
      *
      * @param xcoord
      * @param ycoord
+     *
      * @return true/false
      */
     @Override

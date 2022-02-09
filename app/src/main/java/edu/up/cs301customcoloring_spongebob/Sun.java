@@ -37,6 +37,7 @@ public class Sun extends DrawCanvas{
      * @param canvas
      */
     public void draw(Canvas canvas) {
+        //update the color of the sun
         this.updateColor(this.red, this.green, this.blue);
         canvas.drawOval(this.x, this.y, this.x + 200.0f, this.y + 200.0f, sun);
     }

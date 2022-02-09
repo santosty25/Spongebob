@@ -48,18 +48,22 @@ public class SpongeHouse extends DrawCanvas{
     @Override
     public void draw(Canvas canvas) {
 
+        //update color of Spongebob's house
         this.updateColor(this.red, this.green, this.blue);
 
+        //color of window and door frame
         Paint pineappleFrame = new Paint();
         int frame = Color.rgb(173,216,230);
         pineappleFrame.setColor(frame);
         pineappleFrame.setStyle(Paint.Style.FILL);
 
+        //color of windows
         Paint window = new Paint();
         int windowCol = Color.rgb(0,191,255);
         window.setColor(windowCol);
         window.setStyle(Paint.Style.FILL);
 
+        //color of leaves on top of the pineapple
         Paint leaves = new Paint();
         leaves.setColor(Color.GREEN);
         leaves.setStyle(Paint.Style.FILL);
